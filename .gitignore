@@ -1,6 +1,5 @@
 *.pt
 /pretrained/
-*.png
 **.gif
 .vscode/
 *.rdb

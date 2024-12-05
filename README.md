@@ -235,12 +235,16 @@ The UI is also hosted on HuggingFace🤗 [here](https://huggingface.co/spaces/sh
 ```
 
 
+预训练模型加载地方
+
+- midas.py，修改本地加载midas的配置
+- config_zoedepth.json,修改的pretrained_resource
+- config.py 修改nyu下data_path gt_path data_path_eval gt_path_eval
+
+训练的batch size在config_zoedepth.json中设置
 
 
-
-
-
-
+将WANDB_MODE=online设置为离线状态
 
 
 

@@ -69,7 +69,7 @@ print("-"*20 + " Testing on an indoor scene from url " + "-"*20)
 # Test img
 # url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4W8H_Nxk_rs3Vje_zj6mglPOH7bnPhQitBH8WkqjlqQVotdtDEG37BsnGofME3_u6lDk&usqp=CAU"
 # img = get_image_from_url(url)
-image_path = "/home/chenwu/ZoeDepth/250.png"
+image_path = "./250.png"
 img = Image.open(image_path).convert("RGB")
 
 orig_size = img.size

@@ -36,7 +36,7 @@ ROOT = pathlib.Path(__file__).parent.parent.resolve()
 HOME_DIR = os.path.expanduser("~")
 
 COMMON_CONFIG = {
-    "save_dir": os.path.expanduser("~/shortcuts/monodepth3_checkpoints"),
+    "save_dir": os.path.expanduser("/data2/cw/zoedepth"),
     "project": "ZoeDepth",
     "tags": '',
     "notes": "",
@@ -98,13 +98,13 @@ DATASETS_CONFIG = {
         "avoid_boundary": False,
         "min_depth": 1e-3,   # originally 0.1
         "max_depth": 10,
-        "data_path": os.path.join(HOME_DIR, "shortcuts/datasets/nyu_depth_v2/sync/"),
-        "gt_path": os.path.join(HOME_DIR, "shortcuts/datasets/nyu_depth_v2/sync/"),
+        "data_path": "/data2/cw/sync/",
+        "gt_path": "/data2/cw/sync/",
         "filenames_file": "./train_test_inputs/nyudepthv2_train_files_with_gt.txt",
         "input_height": 480,
         "input_width": 640,
-        "data_path_eval": os.path.join(HOME_DIR, "shortcuts/datasets/nyu_depth_v2/official_splits/test/"),
-        "gt_path_eval": os.path.join(HOME_DIR, "shortcuts/datasets/nyu_depth_v2/official_splits/test/"),
+        "data_path_eval": "/data2/cw/nyu2_test/",
+        "gt_path_eval": "/data2/cw/nyu2_test/",
         "filenames_file_eval": "./train_test_inputs/nyudepthv2_test_files_with_gt.txt",
         "min_depth_eval": 1e-3,
         "max_depth_eval": 10,
