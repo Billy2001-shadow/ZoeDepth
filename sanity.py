@@ -33,7 +33,7 @@ from zoedepth.utils.config import get_config
 from pprint import pprint
 
 
-torch.hub.help("intel-isl/MiDaS", "DPT_BEiT_L_384", force_reload=True) 
+# torch.hub.help("intel-isl/MiDaS", "DPT_BEiT_L_384", force_reload=True) 
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 if DEVICE == "cpu":
@@ -67,8 +67,11 @@ print("\n\n")
 print("-"*20 + " Testing on an indoor scene from url " + "-"*20)
 
 # Test img
-url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4W8H_Nxk_rs3Vje_zj6mglPOH7bnPhQitBH8WkqjlqQVotdtDEG37BsnGofME3_u6lDk&usqp=CAU"
-img = get_image_from_url(url)
+# url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4W8H_Nxk_rs3Vje_zj6mglPOH7bnPhQitBH8WkqjlqQVotdtDEG37BsnGofME3_u6lDk&usqp=CAU"
+# img = get_image_from_url(url)
+image_path = "/home/chenwu/ZoeDepth/250.png"
+img = Image.open(image_path).convert("RGB")
+
 orig_size = img.size
 X = ToTensor()(img)
 X = X.unsqueeze(0).to(DEVICE)
@@ -86,7 +89,7 @@ with torch.no_grad():
 print("output.shape", out.shape)
 pred = Image.fromarray(colorize(out))
 # Stack img and pred side by side for comparison and save
-pred = pred.resize(orig_size, Image.ANTIALIAS)
+pred = pred.resize(orig_size, Image.LANCZOS)
 stacked = Image.new("RGB", (orig_size[0]*2, orig_size[1]))
 stacked.paste(img, (0, 0))
 stacked.paste(pred, (orig_size[0], 0))

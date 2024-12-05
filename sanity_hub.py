@@ -23,21 +23,31 @@
 # File author: Shariq Farooq Bhat
 
 import torch
-import numpy as np
-from torchvision.transforms import ToTensor
-from PIL import Image
-from zoedepth.utils.misc import get_image_from_url, colorize
+# import numpy as np
+# from torchvision.transforms import ToTensor
+# from PIL import Image
+# from zoedepth.utils.misc import get_image_from_url, colorize
 
-from zoedepth.models.builder import build_model
-from zoedepth.utils.config import get_config
-from pprint import pprint
+# from zoedepth.models.builder import build_model
+# from zoedepth.utils.config import get_config
+# from pprint import pprint
 
 
 
 # Trigger reload of MiDaS
-torch.hub.help("intel-isl/MiDaS", "DPT_BEiT_L_384", force_reload=True) 
+# torch.hub.help("intel-isl/MiDaS", "DPT_BEiT_L_384", force_reload=True) 
 
 
-model = torch.hub.load(".", "ZoeD_K", source="local", pretrained=True)
-model = torch.hub.load(".", "ZoeD_NK", source="local", pretrained=True)
-model = torch.hub.load(".", "ZoeD_N", source="local", pretrained=True)
+# model = torch.hub.load(".", "ZoeD_K", source="local", pretrained=True)
+# model = torch.hub.load(".", "ZoeD_NK", source="local", pretrained=True)
+# model = torch.hub.load(".", "ZoeD_N", source="local", pretrained=True)
+# model_zoe_n = torch.hub.load("/home/chenwu/ZoeDepth/pretrained/hub/isl-org-MiDaS-4545977", "ZoeD_N", source="local", pretrained=True)
+
+# 设置本地模型目录
+local_model_dir = "/home/chenwu/ZoeDepth/pretrained/hub/MiDaS"
+
+# 加载 MiDaS 模型
+midas_model = torch.hub.load(local_model_dir, "DPT_BEiT_L_384", source="local", pretrained=True)
+
+# 加载 ZoeDepth 模型
+model_zoe_n = torch.hub.load(".", "ZoeD_N", source="local", pretrained=True)

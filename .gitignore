@@ -1,3 +1,5 @@
+*.pt
+/pretrained/
 *.png
 **.gif
 .vscode/
