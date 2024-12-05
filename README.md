@@ -242,7 +242,7 @@ The UI is also hosted on HuggingFace🤗 [here](https://huggingface.co/spaces/sh
 - config.py 修改nyu下data_path gt_path data_path_eval gt_path_eval
 
 训练的batch size在config_zoedepth.json中设置
-
+pretrained文件下需要下载MiDas的仓库包
 
 将WANDB_MODE=online设置为离线状态
 
